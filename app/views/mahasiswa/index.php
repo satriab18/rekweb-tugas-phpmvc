@@ -1,35 +1,18 @@
 <div class="container mt-5">
 
     <div class="row">
-        <div class="col-6">
+        <div class="col">
             <h3>Daftar Mahasiswa</h3>
-            <div class="text-center">
-            <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">NRP</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Jurusan</th>
-                    </tr>
-                </thead>
-                <tbody>
 
-            <?php $i=1;  foreach($data['mhs'] as $mhs) : ?>
-                <tr>
-                    <th scope="row"><?=$i++?></th>
-                    <td><?= $mhs['nama']?></td>
-                    <td><?= $mhs['nrp']?></td>
-                    <td><?= $mhs['email']?></td>
-                    <td><?= $mhs['jurusan']?></td>
-                </tr>
-                
-            <?php endforeach;?>
-            </tbody>
-            </table>
+                <ul class="list-group">
+                <?php foreach($data['mhs'] as $mhs) : ?>
+                    <li class="list-group-item d-flex justify-content-between align-items-center"><?= $mhs['nama']?>
+                    <a href="<?= BASEURL;?>mahasiswa/detail/<?= $mhs['id']?>" class="badge badge-pill badge-info">Detail</a>
+                    </li>
+                <?php endforeach;?>
+                </ul>
+
             </div>
-        </div>
     </div>
 
 </div>

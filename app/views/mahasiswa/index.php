@@ -1,5 +1,11 @@
 <div class="container mt-3">
 
+<div class="row">
+<div class="col-lg-6">
+<?php Flasher::flash();?>
+</div>
+</div> 
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">
   Tambah Data Mahasiswa
 </button>
@@ -7,13 +13,15 @@
 <br>
 <br>
     <div class="row">
-        <div class="col">
+        <div class="col-lg-6">
             <h3>Daftar Mahasiswa</h3>
 
                 <ul class="list-group">
                 <?php foreach($data['mhs'] as $mhs) : ?>
-                    <li class="list-group-item d-flex justify-content-between align-items-center"><?= $mhs['nama']?>
-                    <a href="<?= BASEURL;?>mahasiswa/detail/<?= $mhs['id']?>" class="badge badge-pill badge-info">Detail</a>
+                    <li class="list-group-item "><?= $mhs['nama']?>
+                    <a href="<?= BASEURL;?>mahasiswa/hapus/<?= $mhs['id']?>" class="badge badge-pill badge-danger float-right ml-1 p-2" onclick="return confirm('Ingin hapus data mahasiswa?')">Hapus</a>
+                    <a href="<?= BASEURL;?>mahasiswa/tambah/<?= $mhs['id']?>" class="badge badge-pill badge-success float-right ml-1 p-2">Tambah</a>
+                    <a href="<?= BASEURL;?>mahasiswa/detail/<?= $mhs['id']?>" class="badge badge-pill badge-info float-right ml-1 p-2">Detail</a>
                     </li>
                 <?php endforeach;?>
                 </ul>
